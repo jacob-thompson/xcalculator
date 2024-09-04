@@ -4,12 +4,12 @@ build-backend = "hatchling.build"
 
 [project]
 dynamic = ["version"]
-name = "easy-calculator"
+name = "xcalculator"
 description = "Calculator created using tkinter"
 readme = "README.md"
 requires-python = ">=3.7"
 license = {file = "LICENSE"}
-keywords = ["arithmetic", "easy", "simple", "calculator", "math", "mathematics", "executable", "application"]
+keywords = ["arithmetic", "cross", "platform", "xplatform", "easy", "simple", "calculator", "math", "mathematics", "executable", "application"]
 authors = [
     {name = "Jacob A. Thompson", email = "jacobalthompson@gmail.com"}
 ]
@@ -32,11 +32,11 @@ classifiers = [
 dependencies = ["sympy"]
 
 [project.urls]
-"Homepage" = "https://github.com/jacob-thompson/easy-calculator"
-"Bug Reports" = "https://github.com/jacob-thompson/easy-calculator/issues"
+"Homepage" = "https://github.com/jacob-thompson/xcalculator"
+"Bug Reports" = "https://github.com/jacob-thompson/xcalculator/issues"
 
 [project.scripts]
-calc = "easy_calculator.main:main"
+calc = "xcalculator.main:main"
 
 [tool.hatch.version]
 source = "vcs"

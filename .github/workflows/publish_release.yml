@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/project/easy-calculator/
+      url: https://pypi.org/project/xcalculator/
     permissions:
       id-token: write
     steps:
