@@ -1,3 +1,4 @@
+from sys import stderr
 from tkinter import *
 from tkinter import ttk
 
@@ -7,11 +8,11 @@ class Calculator:
 
     def __init__(self):
         self.root = Tk()
-        self.root.title("Calculator")
-        self.root.geometry("175x250")
+        self.root.title("xcalculator")
+        self.root.geometry("250x325")
         self.root.minsize(125, 210)
 
-        mainframe = ttk.Frame(self.root, borderwidth=3, relief="ridge", padding=("3 10 3 10"))
+        mainframe = ttk.Frame(self.root, borderwidth=2, relief="ridge", padding=("3 10 3 10"))
         mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
         self.root.columnconfigure(0, weight=1)
         self.root.rowconfigure(0, weight=1)
@@ -140,14 +141,18 @@ class Calculator:
         self.problem.set(current + nine)
 
     def calculate(self, *args):
+        if self.problem.get() == "":
+            return
+
         try:
             value = sympify(self.problem.get(), evaluate=True)
             result = self.decimal_conversion(value)
             self.problem.set(result)
         except SympifyError as err:
-            print("Sympify error has occurred:")
-            print(str(err))
+            print("Sympify error has occurred:", file=stderr)
+            print(str(err), file=stderr)
             self.clear_problem()
+
         self.prob_entry.icursor(END)
 
     def callback(self, entry):
