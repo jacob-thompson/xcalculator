@@ -1,7 +1,7 @@
 from .calculator import Calculator
 
 def main():
-    print("easy-calculator https://github.com/jacob-thompson/easy-calculator")
+    print("xcalculator https://github.com/jacob-thompson/xcalculator")
     Calculator()
 
 if __name__ == "__main__":
