@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 dynamic = ["version"]
 name = "xcalculator"
-description = "Calculator created using tkinter"
+description = "Cross-platform calculator created using tkinter"
 readme = "README.md"
 requires-python = ">=3.7"
 license = {file = "LICENSE"}
@@ -36,7 +36,8 @@ dependencies = ["sympy"]
 "Bug Reports" = "https://github.com/jacob-thompson/xcalculator/issues"
 
 [project.scripts]
-calc = "xcalculator.main:main"
+xcalc = "xcalculator.main:main"
+xcalculator = "xcalculator.main:main"
 
 [tool.hatch.version]
 source = "vcs"

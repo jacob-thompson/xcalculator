@@ -1,1 +1,1 @@
-Calculator created using tkinter
+Cross-platform calculator created using tkinter
