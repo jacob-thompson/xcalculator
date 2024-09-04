@@ -16,7 +16,7 @@ class Calculator:
         self.root.columnconfigure(0, weight=1)
         self.root.rowconfigure(0, weight=1)
 
-        values = "0123456789.+-*/()"
+        values = "0123456789.+-*/() "
         self.permitted_values = set(values)
 
         self.problem = StringVar()
