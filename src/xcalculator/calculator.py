@@ -78,6 +78,7 @@ class Calculator:
         self.root.bind("(", self.append_open_paranthesis)
         self.root.bind(")", self.append_closed_paranthesis)
 
+        self.root.bind("<KP_Decimal>", self.append_decimal)
         self.root.bind(".", self.append_decimal)
 
         self.root.bind("<KP_0>", self.append_zero)
@@ -109,6 +110,10 @@ class Calculator:
 
         self.root.bind("<KP_9>", self.append_nine)
         self.root.bind("9", self.append_nine)
+
+        self.root.bind("<KP_Enter>", self.calculate)
+        self.root.bind("<KP_Equal>", self.calculate)
+        self.root.bind("=", self.calculate)
 
         self.root.mainloop()
 
