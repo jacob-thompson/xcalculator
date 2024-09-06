@@ -63,79 +63,114 @@ class Calculator:
         self.root.bind("<Return>", self.calculate)
         self.root.bind("<Escape>", self.clear_problem)
 
+        self.root.bind("<KP_Add>", self.operand_addition)
+        self.root.bind("<KP_Subtract>", self.operand_subtraction)
+        self.root.bind("<KP_Multiply>", self.operand_multiplication)
+        self.root.bind("<KP_Divide>", self.operand_division)
+
+        self.root.bind("<KP_0>", self.append_zero)
+        self.root.bind("<0>", self.append_zero)
+
+        self.root.bind("<KP_1>", self.append_one)
+        self.root.bind("<1>", self.append_one)
+
+        self.root.bind("<KP_2>", self.append_two)
+        self.root.bind("<2>", self.append_two)
+
+        self.root.bind("<KP_3>", self.append_three)
+        self.root.bind("<3>", self.append_three)
+
+        self.root.bind("<KP_4>", self.append_four)
+        self.root.bind("<4>", self.append_four)
+
+        self.root.bind("<KP_5>", self.append_five)
+        self.root.bind("<5>", self.append_five)
+
+        self.root.bind("<KP_6>", self.append_six)
+        self.root.bind("<6>", self.append_six)
+
+        self.root.bind("<KP_7>", self.append_seven)
+        self.root.bind("<7>", self.append_seven)
+
+        self.root.bind("<KP_8>", self.append_eight)
+        self.root.bind("<8>", self.append_eight)
+
+        self.root.bind("<KP_9>", self.append_nine)
+        self.root.bind("<9>", self.append_nine)
+
         self.root.mainloop()
 
-    def operand_addition(self):
+    def operand_addition(self, *args):
         operand = "+"
         current = self.problem.get()
         self.problem.set(current + operand)
 
-    def operand_subtraction(self):
+    def operand_subtraction(self, *args):
         operand = "-"
         current = self.problem.get()
         self.problem.set(current + operand)
 
-    def operand_multiplication(self):
+    def operand_multiplication(self, *args):
         operand = "*"
         current = self.problem.get()
         self.problem.set(current + operand)
 
-    def operand_division(self):
+    def operand_division(self, *args):
         operand = "/"
         current = self.problem.get()
         self.problem.set(current + operand)
 
-    def append_decimal(self):
+    def append_decimal(self, *args):
         decimal = "."
         current = self.problem.get()
         self.problem.set(current + decimal)
 
-    def append_zero(self):
+    def append_zero(self, *args):
         zero = "0"
         current = self.problem.get()
         self.problem.set(current + zero)
 
-    def append_one(self):
+    def append_one(self, *args):
         one = "1"
         current = self.problem.get()
         self.problem.set(current + one)
 
-    def append_two(self):
+    def append_two(self, *args):
         two = "2"
         current = self.problem.get()
         self.problem.set(current + two)
 
-    def append_three(self):
+    def append_three(self, *args):
         three = "3"
         current = self.problem.get()
         self.problem.set(current + three)
 
-    def append_four(self):
+    def append_four(self, *args):
         four = "4"
         current = self.problem.get()
         self.problem.set(current + four)
 
-    def append_five(self):
+    def append_five(self, *args):
         five = "5"
         current = self.problem.get()
         self.problem.set(current + five)
 
-    def append_six(self):
+    def append_six(self, *args):
         six = "6"
         current = self.problem.get()
         self.problem.set(current + six)
 
-    def append_seven(self):
+    def append_seven(self, *args):
         seven = "7"
         current = self.problem.get()
         self.problem.set(current + seven)
 
-    def append_eight(self):
+    def append_eight(self, *args):
         eight = "8"
         current = self.problem.get()
         self.problem.set(current + eight)
 
-    def append_nine(self):
+    def append_nine(self, *args):
         nine = "9"
         current = self.problem.get()
         self.problem.set(current + nine)
