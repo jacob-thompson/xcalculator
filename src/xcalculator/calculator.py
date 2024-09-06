@@ -64,113 +64,186 @@ class Calculator:
         self.root.bind("<Escape>", self.clear_problem)
 
         self.root.bind("<KP_Add>", self.operand_addition)
+        self.root.bind("+", self.operand_addition)
+
         self.root.bind("<KP_Subtract>", self.operand_subtraction)
+        self.root.bind("-", self.operand_subtraction)
+
         self.root.bind("<KP_Multiply>", self.operand_multiplication)
+        self.root.bind("*", self.operand_multiplication)
+
         self.root.bind("<KP_Divide>", self.operand_division)
+        self.root.bind("/", self.operand_division)
+
+        self.root.bind("(", self.append_open_paranthesis)
+        self.root.bind(")", self.append_closed_paranthesis)
+
+        self.root.bind(".", self.append_decimal)
 
         self.root.bind("<KP_0>", self.append_zero)
-        self.root.bind("<0>", self.append_zero)
+        self.root.bind("0", self.append_zero)
 
         self.root.bind("<KP_1>", self.append_one)
-        self.root.bind("<1>", self.append_one)
+        self.root.bind("1", self.append_one)
 
         self.root.bind("<KP_2>", self.append_two)
-        self.root.bind("<2>", self.append_two)
+        self.root.bind("2", self.append_two)
 
         self.root.bind("<KP_3>", self.append_three)
-        self.root.bind("<3>", self.append_three)
+        self.root.bind("3", self.append_three)
 
         self.root.bind("<KP_4>", self.append_four)
-        self.root.bind("<4>", self.append_four)
+        self.root.bind("4", self.append_four)
 
         self.root.bind("<KP_5>", self.append_five)
-        self.root.bind("<5>", self.append_five)
+        self.root.bind("5", self.append_five)
 
         self.root.bind("<KP_6>", self.append_six)
-        self.root.bind("<6>", self.append_six)
+        self.root.bind("6", self.append_six)
 
         self.root.bind("<KP_7>", self.append_seven)
-        self.root.bind("<7>", self.append_seven)
+        self.root.bind("7", self.append_seven)
 
         self.root.bind("<KP_8>", self.append_eight)
-        self.root.bind("<8>", self.append_eight)
+        self.root.bind("8", self.append_eight)
 
         self.root.bind("<KP_9>", self.append_nine)
-        self.root.bind("<9>", self.append_nine)
+        self.root.bind("9", self.append_nine)
 
         self.root.mainloop()
 
     def operand_addition(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         operand = "+"
         current = self.problem.get()
         self.problem.set(current + operand)
 
     def operand_subtraction(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         operand = "-"
         current = self.problem.get()
         self.problem.set(current + operand)
 
     def operand_multiplication(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         operand = "*"
         current = self.problem.get()
         self.problem.set(current + operand)
 
     def operand_division(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         operand = "/"
         current = self.problem.get()
         self.problem.set(current + operand)
 
+    def append_closed_paranthesis(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
+        paranthesis = ")"
+        current = self.problem.get()
+        self.problem.set(current + paranthesis)
+
+    def append_open_paranthesis(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
+        paranthesis = "("
+        current = self.problem.get()
+        self.problem.set(current + paranthesis)
+
     def append_decimal(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         decimal = "."
         current = self.problem.get()
         self.problem.set(current + decimal)
 
     def append_zero(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         zero = "0"
         current = self.problem.get()
         self.problem.set(current + zero)
 
     def append_one(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         one = "1"
         current = self.problem.get()
         self.problem.set(current + one)
 
     def append_two(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         two = "2"
         current = self.problem.get()
         self.problem.set(current + two)
 
     def append_three(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         three = "3"
         current = self.problem.get()
         self.problem.set(current + three)
 
     def append_four(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         four = "4"
         current = self.problem.get()
         self.problem.set(current + four)
 
     def append_five(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         five = "5"
         current = self.problem.get()
         self.problem.set(current + five)
 
     def append_six(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         six = "6"
         current = self.problem.get()
         self.problem.set(current + six)
 
     def append_seven(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         seven = "7"
         current = self.problem.get()
         self.problem.set(current + seven)
 
     def append_eight(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         eight = "8"
         current = self.problem.get()
         self.problem.set(current + eight)
 
     def append_nine(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
         nine = "9"
         current = self.problem.get()
         self.problem.set(current + nine)
