@@ -35,7 +35,7 @@ dependencies = ["sympy"]
 "Homepage" = "https://github.com/jacob-thompson/xcalculator"
 "Bug Reports" = "https://github.com/jacob-thompson/xcalculator/issues"
 
-[project.scripts]
+[project.gui-scripts]
 xcalc = "xcalculator.main:main"
 xcalculator = "xcalculator.main:main"
 
