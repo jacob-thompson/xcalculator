@@ -17,10 +17,14 @@ class Calculator:
         self.root.columnconfigure(0, weight=1)
         self.root.rowconfigure(0, weight=1)
 
-        values = "0123456789.+-*/() "
+        values = "eans0123456789.+-*/() "
         self.permitted_values = set(values)
 
+        self.result_flag = False
+        self.ans_flag = False
+
         self.problem = StringVar()
+        self.result = StringVar()
         vcmd = (mainframe.register(self.callback))
         self.prob_entry = ttk.Entry(mainframe, textvariable=self.problem, validate="all", validatecommand=(vcmd, "%P"))
         self.prob_entry.grid(column=1, row=1, columnspan=4, sticky=(N, W, E))
@@ -58,9 +62,11 @@ class Calculator:
         for child in mainframe.winfo_children(): 
             child.grid_configure(padx=5, pady=5)
 
+        self.problem.trace("w", self.check)
+
         self.prob_entry.focus()
 
-        self.root.bind("<Return>", self.calculate)
+        self.root.bind("<BackSpace>", self.delete_digit)
         self.root.bind("<Escape>", self.clear_problem)
 
         self.root.bind("<KP_Add>", self.operand_addition)
@@ -113,11 +119,16 @@ class Calculator:
 
         self.root.bind("<KP_Enter>", self.calculate)
         self.root.bind("<KP_Equal>", self.calculate)
+        self.root.bind("<Return>", self.calculate)
         self.root.bind("=", self.calculate)
 
         self.root.mainloop()
 
     def operand_addition(self, *args):
+        if self.ans_flag:
+            self.prob_entry.icursor(END)
+            self.ans_flag = False
+
         if self.prob_entry.focus_get() == self.prob_entry:
             return
 
@@ -126,6 +137,10 @@ class Calculator:
         self.problem.set(current + operand)
 
     def operand_subtraction(self, *args):
+        if self.ans_flag:
+            self.prob_entry.icursor(END)
+            self.ans_flag = False
+
         if self.prob_entry.focus_get() == self.prob_entry:
             return
 
@@ -134,6 +149,10 @@ class Calculator:
         self.problem.set(current + operand)
 
     def operand_multiplication(self, *args):
+        if self.ans_flag:
+            self.prob_entry.icursor(END)
+            self.ans_flag = False
+
         if self.prob_entry.focus_get() == self.prob_entry:
             return
 
@@ -142,6 +161,10 @@ class Calculator:
         self.problem.set(current + operand)
 
     def operand_division(self, *args):
+        if self.ans_flag:
+            self.prob_entry.icursor(END)
+            self.ans_flag = False
+
         if self.prob_entry.focus_get() == self.prob_entry:
             return
 
@@ -258,14 +281,21 @@ class Calculator:
             return
 
         try:
-            value = sympify(self.problem.get(), evaluate=True)
-            result = self.decimal_conversion(value)
-            self.problem.set(result)
+            expression = sympify(self.problem.get())
         except SympifyError as err:
             print("Sympify error has occurred:", file=stderr)
             print(str(err), file=stderr)
             self.clear_problem()
 
+        if "ans" in str(expression):
+            value = expression.subs("ans", self.result.get())
+            self.result.set(self.decimal_conversion(value))
+            self.problem.set(self.result.get())
+        else:
+            self.result.set(self.decimal_conversion(expression))
+            self.problem.set(self.result.get())
+
+        self.result_flag = True
         self.prob_entry.icursor(END)
 
     def callback(self, entry):
@@ -273,6 +303,19 @@ class Calculator:
             return True
         else:
             return False
+
+    def check(self, *args):
+        if self.result_flag:
+            self.remove_result_from_entry()
+
+        entry = self.problem.get()
+        operands = list("+-*/")
+        if entry in operands and self.result_flag:
+            new_entry = "ans" + entry
+            self.problem.set(new_entry)
+            self.ans_flag = True
+
+        self.result_flag = False
 
     def clear_problem(self, *args):
         self.problem.set("")
@@ -284,3 +327,19 @@ class Calculator:
             return format(float(value), "g")
         else:
             return format(float(value.evalf()), "g")
+
+    def delete_digit(self, *args):
+        if self.prob_entry.focus_get() == self.prob_entry:
+            return
+
+        current = self.problem.get()
+        self.problem.set(current[:-1])
+
+    def remove_result_from_entry(self):
+        result = self.result.get()
+        entry = self.problem.get()
+
+        for digit in list(result):
+            entry = entry.replace(digit, "")
+
+        self.problem.set(entry)
