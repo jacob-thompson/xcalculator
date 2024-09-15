@@ -46,26 +46,6 @@ xcalculator
 
 
 
-## License
-
-Distributed under the MIT License. See [LICENSE](https://github.com/jacob-thompson/xcalculator/blob/main/LICENSE) for more information.
-
-
-
-## Project Links
-
-Github - [jacob-thompson/xcalculator](https://github.com/jacob-thompson/xcalculator)
-
-PyPI - [xcalculator](https://pypi.org/project/xcalculator/)
-
-
-
-## Contact
-
-Jacob Alexander Thompson - jacobalthompson@gmail.com
-
-
-
 [contributors-shield]: https://img.shields.io/github/contributors/jacob-thompson/xcalculator.svg?style=flat
 [contributors-url]: https://github.com/jacob-thompson/xcalculator/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/jacob-thompson/xcalculator.svg?style=flat

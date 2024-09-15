@@ -7,7 +7,7 @@ dynamic = ["version"]
 name = "xcalculator"
 description = "Cross-platform calculator"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.2"
 license = {file = "LICENSE"}
 keywords = ["arithmetic", "cross", "platform", "xplatform", "tkinter", "easy", "simple", "calculator", "math", "mathematics", "executable", "application"]
 authors = [
@@ -17,7 +17,7 @@ maintainers = [
     {name = "Jacob A. Thompson", email = "jacobalthompson@gmail.com"}
 ]
 classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
+    "Development Status :: 3 - Alpha",
     "Topic :: Games/Entertainment",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
