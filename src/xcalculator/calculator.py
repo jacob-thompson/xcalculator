@@ -62,7 +62,7 @@ class Calculator:
         for child in mainframe.winfo_children(): 
             child.grid_configure(padx=5, pady=5)
 
-        self.problem.trace("w", self.check)
+        self.problem.trace_add("write", self.check)
 
         self.prob_entry.focus()
 
