@@ -4,47 +4,39 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 
-
-
 ## About The Project
 
 Cross-platform calculator
-
-
 
 ## Install
 
 [Recommended](https://peps.python.org/pep-0668/):
 
-```sh
+```bash
 pipx install xcalculator
 ```
 
 Otherwise:
 
-```sh
+```bash
 pip install xcalculator
 ```
 
 On macOS, you may need:
 
-```sh
+```bash
 brew install python-tk
 ```
 
-
-
 ## Run
 
-```sh
+```bash
 xcalc
 ```
 
-```sh
+```bash
 xcalculator
 ```
-
-
 
 [contributors-shield]: https://img.shields.io/github/contributors/jacob-thompson/xcalculator.svg?style=flat
 [contributors-url]: https://github.com/jacob-thompson/xcalculator/graphs/contributors
